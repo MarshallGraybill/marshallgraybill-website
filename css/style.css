@@ -62,8 +62,8 @@ img { display: block; max-width: 100%; height: auto; }
 .shots figure { margin: 0; }
 .shots img { width: 100%; border-radius: var(--radius); background: var(--tile); }
 /* side-by-side images always line up, even if their proportions differ slightly */
-.shots .row figure { display: flex; }
-.shots .row img { height: 100%; object-fit: cover; }
+.shots .row figure { display: flex; flex-direction: column; }
+.shots .row img { flex: 1 1 auto; height: 100%; object-fit: cover; }
 .shots figcaption { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin-top: 10px; }
 
 /* Sub-sections within a project (e.g. two design concepts) */
