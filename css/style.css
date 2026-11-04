@@ -75,6 +75,16 @@ img { display: block; max-width: 100%; height: auto; }
 .features li { border-top: 1px solid #d9d5cc; padding: 14px 0 18px; font-size: 16px; }
 .features li span { display: block; font-size: 12px; letter-spacing: .18em; color: var(--dim); margin-bottom: 4px; }
 
+/* Logo used in place of a text title */
+.project-head .logo { margin: 0 auto; max-width: min(360px, 70vw); }
+.project-head .logo img { width: 100%; }
+
+/* Long-form write-up between images */
+.story { max-width: 760px; margin: 72px auto; }
+.story h2 { margin: 0 0 14px; font-size: 14px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--dim);
+  border-top: 1px solid #d9d5cc; padding-top: 18px; }
+.story p { margin: 0 0 1em; font-size: 18px; line-height: 1.7; }
+
 .pager { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; max-width: 1600px; margin: 64px auto 0;
   padding-top: 24px; border-top: 1px solid #d9d5cc; font-size: 17px; letter-spacing: .06em; text-transform: uppercase; }
 .pager a { color: var(--dim); }
