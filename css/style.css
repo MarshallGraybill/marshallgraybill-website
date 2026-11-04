@@ -8,6 +8,7 @@
   --ink: #1b1a18;     /* main text */
   --dim: #77736b;     /* menu items, secondary text */
   --tile: #e4e1da;    /* shown behind images while they load */
+  --panel: #e6e6e6;   /* behind renders with transparent backgrounds (white: #fff) */
   --radius: 8px;      /* rounded image corners */
   --gap: 8px;         /* space between grid tiles */
   --edge: clamp(16px, 4vw, 80px);  /* page side margins */
@@ -57,6 +58,13 @@ img { display: block; max-width: 100%; height: auto; }
 .facts li { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
 .facts b { font-weight: 400; color: var(--ink); }
 
+/* Link to a document such as a white paper */
+.doc-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 12px 22px;
+  border: 1px solid var(--ink); border-radius: 999px; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; }
+.doc-link:hover { background: var(--ink); color: var(--bg); }
+.doc-link small { font-size: 12px; letter-spacing: .08em; color: var(--dim); }
+.doc-link:hover small { color: inherit; }
+
 .shots { display: grid; gap: var(--gap); max-width: 1600px; margin: 0 auto; }
 .shots .row { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
 .shots figure { margin: 0; }
@@ -75,8 +83,8 @@ img { display: block; max-width: 100%; height: auto; }
 .features li { border-top: 1px solid #d9d5cc; padding: 14px 0 18px; font-size: 16px; }
 .features li span { display: block; font-size: 12px; letter-spacing: .18em; color: var(--dim); margin-bottom: 4px; }
 
-/* White panel behind renders with transparent backgrounds */
-.shots .white img { background: #fff; }
+/* Panel behind renders with transparent backgrounds (colour set by --panel) */
+.shots .white img { background: var(--panel); }
 
 /* Side-by-side row for images of very different proportions: set each figure's
    --ar (width ÷ height) and the row sizes them so heights match without cropping. */
