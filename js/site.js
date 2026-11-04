@@ -118,5 +118,53 @@
       '<i class="bubble b1"></i><i class="bubble b2"></i><i class="bubble b3"></i></div>';
   }
 
-  document.addEventListener('DOMContentLoaded', () => { setup(); filters(); footerPenguin(); swimmer(); });
+  /* ---------- Research page: descend into the ocean as you scroll ----------
+     The page colour follows scroll depth from the surface to the deep. Text flips
+     to light once the water is dark enough to keep it readable. */
+  function ocean() {
+    if (!document.body.hasAttribute('data-ocean')) return;
+    const stops = [ // [depth 0–1, colour] — passes quickly through mid-blues where no text colour reads well
+      [0.00, [243, 241, 236]],  // site off-white, above the surface
+      [0.12, [228, 239, 240]],  // sunlit surface water
+      [0.32, [156, 197, 207]],  // 水浅葱 mizuasagi
+      [0.40, [77, 147, 173]],   // 縹 hanada
+      [0.48, [31, 95, 128]],    // deeper indigo-blue
+      [0.75, [20, 63, 90]],     // twilight zone
+      [1.00, [11, 31, 46]]      // the deep
+    ];
+    const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
+    const at = p => {
+      for (let i = 1; i < stops.length; i++) if (p <= stops[i][0]) {
+        const [p0, c0] = stops[i - 1], [p1, c1] = stops[i];
+        return mix(c0, c1, (p - p0) / (p1 - p0));
+      }
+      return stops[stops.length - 1][1];
+    };
+    const lum = c => { const [r, g, b] = c.map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; }); return .2126 * r + .7152 * g + .0722 * b; };
+    const root = document.documentElement, body = document.body;
+    let ticking = false;
+    const paint = () => {
+      ticking = false;
+      const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      const p = Math.min(1, Math.max(0, scrollY / max));
+      const c = at(p), rgb = `rgb(${c})`;
+      root.style.backgroundColor = rgb;
+      body.style.setProperty('--bg', rgb);
+      body.style.setProperty('--tile', `rgba(${mix(c, [255, 255, 255], .14)}, 1)`);
+      // Pick whichever text colour has more contrast against the water at this depth.
+      const L = lum(c), darkText = (L + .05) / (0.0105 + .05), lightText = (0.88 + .05) / (L + .05);
+      const deep = lightText > darkText;
+      body.classList.toggle('in-deep', deep);
+      // Secondary grey text: a fixed blend of the text colour and the water, so it stays legible at every depth.
+      if (p > 0.06) body.style.setProperty('--dim', `rgb(${mix(deep ? [238, 243, 245] : [27, 26, 24], c, .2)})`);
+      else body.style.removeProperty('--dim');
+      body.classList.toggle('in-water', p > 0.06);
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(paint); } };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    paint();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => { setup(); filters(); footerPenguin(); swimmer(); ocean(); });
 })();

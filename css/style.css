@@ -264,3 +264,9 @@ img { display: block; max-width: 100%; height: auto; }
   .waddler, .swimmer, .glide, .bubble { animation: none !important; }
   .swimmer { left: 50%; transform: translateX(-50%); }
 }
+
+/* Research page: colour deepens with scroll (js/site.js → ocean). Text flips light in deep water. */
+body[data-ocean] { transition: color .5s ease; }
+body[data-ocean].in-water { --rule: rgba(27,26,24,.22); }
+body[data-ocean].in-deep { --ink: #eef3f5; --rule: rgba(238,243,245,.3); color: var(--ink); }
+body[data-ocean] .ph { transition: color .5s ease, border-color .5s ease; }
