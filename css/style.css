@@ -241,12 +241,6 @@ img { display: block; max-width: 100%; height: auto; }
   transform: scaleX(0); transform-origin: left center; transition: transform 1.4s cubic-bezier(.2,.7,.2,1) .1s; }
 .will-draw.in::before { transform: scaleX(1); }
 
-/* Tile → project page: the tile image morphs into the project's hero image
-   (cross-document view transitions; browsers without support just load the page) */
-@view-transition { navigation: auto; }
-::view-transition-group(*) { animation-duration: .55s; animation-timing-function: cubic-bezier(.2,.7,.2,1); }
-::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; }
-
 /* Gentoo penguin easter egg: waddles across the footer now and then (or on click) */
 .site-footer.has-penguin { position: relative; overflow: hidden; padding-top: 64px; }
 .waddler { position: absolute; left: 0; bottom: 18px; width: 34px; height: 45px; animation: waddle-across 9s linear forwards; pointer-events: none; }
@@ -267,7 +261,6 @@ img { display: block; max-width: 100%; height: auto; }
 @keyframes bubble { 0% { opacity: 0; transform: translate(0,0); } 20% { opacity: 1; } 100% { opacity: 0; transform: translate(-26px,-34px); } }
 
 @media (prefers-reduced-motion: reduce) {
-  @view-transition { navigation: none; }
   .waddler, .swimmer, .glide, .bubble { animation: none !important; }
   .swimmer { left: 50%; transform: translateX(-50%); }
 }

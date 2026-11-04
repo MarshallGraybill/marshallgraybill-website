@@ -9,7 +9,7 @@
 
   /* ---------- Gentle reveal on scroll + self-drawing lines ----------
      Only elements that start below the fold are hidden, so nothing above the
-     fold flashes, and page-transition snapshots are never taken mid-fade. */
+     fold flashes. */
   const REVEAL = '.tile, .shots > figure, .shots .row > figure, .story, .study-index > a, .pub, .cv-entry, .features li, .part, .study-head';
   const LINES = '.story h2, .study-head, .cv-section, .pager, .part-head, .features li';
 
@@ -35,11 +35,7 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     pending.forEach(el => io.observe(el));
-    window.__revealAll = () => pending.forEach(el => el.classList.add('in'));
   }
-
-  // Arriving through a page transition: show everything at once so the morph has a target.
-  window.addEventListener('pagereveal', e => { if (e.viewTransition && window.__revealAll) window.__revealAll(); });
 
   /* ---------- Smooth filtering on the home grid (FLIP) ---------- */
   function filters() {
