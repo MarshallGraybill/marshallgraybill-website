@@ -31,3 +31,7 @@ The access key is safe to publish: it can only send messages to your inbox, and 
 
 ## Design archive
 Layout mockups, icon options, and page screenshots live on the `design-archive` branch so they aren't published with the site.
+
+## Updating CSS or JS
+Pages load `css/style.css?v=…` and `js/site.js?v=…`. After changing either file, update the `v=` value on every page
+(any new value works) so browsers fetch the new version instead of a cached copy.
