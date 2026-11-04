@@ -8,7 +8,7 @@
   --ink: #1b1a18;     /* main text */
   --dim: #77736b;     /* menu items, secondary text */
   --tile: #e4e1da;    /* shown behind images while they load */
-  --panel: #3d3d3d;   /* behind renders with transparent backgrounds (white: #fff) */
+  --panel: var(--bg); /* behind renders with transparent backgrounds — matches the page (white: #fff) */
   --radius: 8px;      /* rounded image corners */
   --gap: 8px;         /* space between grid tiles */
   --edge: clamp(16px, 4vw, 80px);  /* page side margins */
