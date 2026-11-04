@@ -242,7 +242,7 @@ img { display: block; max-width: 100%; height: auto; }
 .will-draw.in::before { transform: scaleX(1); }
 
 /* Gentoo penguin easter egg: waddles across the footer now and then (or on click) */
-.site-footer.has-penguin { position: relative; overflow: hidden; padding-top: 64px; }
+.site-footer.has-penguin { position: relative; overflow-x: clip; overflow-y: visible; padding-top: 64px; }
 .waddler { position: absolute; left: 0; bottom: 18px; width: 34px; height: 45px; animation: waddle-across 9s linear forwards; pointer-events: none; }
 .waddler .bob { width: 100%; height: 100%; transform-origin: 50% 100%; animation: waddle 0.42s ease-in-out infinite alternate; }
 .waddler svg, .glide svg { width: 100%; height: 100%; display: block; }
@@ -322,20 +322,6 @@ body[data-ocean] .ph { transition: color .5s ease, border-color .5s ease; }
 @keyframes wren-flap { from { transform: scaleY(1); } to { transform: scaleY(-.75); } }
 @keyframes wren-tail { from { transform: rotate(-6deg); } to { transform: rotate(8deg); } }
 
-/* Pump page: a little water geyser */
-.gey-water { fill: #8cc4d6; } .gey-hi { fill: #d8edf3; } .gey-top circle, .gey-drop circle { fill: #8cc4d6; }
-.scene-geyser .rock { fill: #8f8a80; } .scene-geyser .rock-dark { fill: #6f6a61; } .scene-geyser .puddle { fill: rgba(140,196,214,.35); }
-.gey-col { transform-origin: 300px 151px; animation: gey-col 5s ease-in-out infinite; }
-.gey-top { transform-origin: 300px 46px; animation: gey-top 5s ease-in-out infinite; }
-.gey-drop { opacity: 0; animation: 5s ease-in-out infinite; }
-.gey-drop.d1 { animation-name: gey-d1; } .gey-drop.d2 { animation-name: gey-d2; } .gey-drop.d3 { animation-name: gey-d3; } .gey-drop.d4 { animation-name: gey-d4; }
-@keyframes gey-col { 0% { transform: scaleY(.04); } 9% { transform: scaleY(1.04); } 20% { transform: scaleY(.9); } 31% { transform: scaleY(1); } 43% { transform: scaleY(.88); } 55% { transform: scaleY(.97); } 66%, 100% { transform: scaleY(.04); } }
-@keyframes gey-top { 0% { transform: translateY(103px) scale(.2); opacity: 0; } 9% { transform: translateY(-4px); opacity: 1; } 20% { transform: translateY(11px); } 31% { transform: translateY(0); } 43% { transform: translateY(13px); } 55% { transform: translateY(3px); opacity: 1; } 66%, 100% { transform: translateY(103px) scale(.2); opacity: 0; } }
-@keyframes gey-d1 { 0%, 10% { opacity: 0; transform: translate(298px, 48px); } 12% { opacity: 1; } 20% { transform: translate(272px, 26px); } 30% { transform: translate(252px, 82px); } 36% { opacity: 1; transform: translate(244px, 150px); } 37%, 100% { opacity: 0; transform: translate(244px, 150px); } }
-@keyframes gey-d2 { 0%, 16% { opacity: 0; transform: translate(302px, 50px); } 18% { opacity: 1; } 26% { transform: translate(330px, 30px); } 36% { transform: translate(350px, 88px); } 42% { opacity: 1; transform: translate(358px, 150px); } 43%, 100% { opacity: 0; transform: translate(358px, 150px); } }
-@keyframes gey-d3 { 0%, 30% { opacity: 0; transform: translate(299px, 50px); } 32% { opacity: 1; } 40% { transform: translate(280px, 34px); } 48% { transform: translate(266px, 92px); } 53% { opacity: 1; transform: translate(260px, 150px); } 54%, 100% { opacity: 0; transform: translate(260px, 150px); } }
-@keyframes gey-d4 { 0%, 38% { opacity: 0; transform: translate(301px, 52px); } 40% { opacity: 1; } 47% { transform: translate(318px, 40px); } 54% { transform: translate(334px, 96px); } 59% { opacity: 1; transform: translate(340px, 150px); } 60%, 100% { opacity: 0; transform: translate(340px, 150px); } }
-
 /* Flavor bottle page: a little pile of fruit (a blueberry drops in now and then) */
 .scene-fruit .orange { fill: #e8873a; } .scene-fruit .orange-dot { fill: #f2b07a; } .scene-fruit .lemon { fill: #e9c13b; }
 .scene-fruit .lime { fill: #8fb04a; } .scene-fruit .straw { fill: #d24a43; } .scene-fruit .straw-leaf, .scene-fruit .mint { fill: #6f9a52; }
@@ -414,6 +400,12 @@ body[data-ocean] .ph { transition: color .5s ease, border-color .5s ease; }
 @media (prefers-reduced-motion: reduce) {
   .scene * { animation: none !important; }
   .wren-x { transform: translate(300px, 74px); }
-  .gey-drop, .berry-drop, .drop-fall, .crown, .ripple { display: none; }
+  .berry-drop, .drop-fall, .crown, .ripple { display: none; }
   .pg-x { transform: translate(260px, 130px); } .bub { display: none; }
 }
+
+/* Project scenes live in the footer: small, centred between the bottom divider and the copyright line */
+.site-footer { position: relative; }
+.site-footer:has(.scene, .dig-site) { padding-top: 64px; }
+.site-footer .scene, .site-footer .dig-site { position: absolute; left: 50%; top: -18px; width: min(240px, 58vw); margin: 0;
+  transform: translateX(-50%); pointer-events: none; text-transform: none; }
