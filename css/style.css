@@ -157,3 +157,25 @@ img { display: block; max-width: 100%; height: auto; }
 .study .story { margin: 56px auto; }
 .to-top { display: block; text-align: right; margin-top: 24px; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
 .to-top:hover { color: var(--ink); }
+
+/* ---------- CV page ---------- */
+.cv { max-width: 1100px; margin: 0 auto; }
+.cv-section { display: grid; grid-template-columns: 220px 1fr; gap: 12px 48px; border-top: 1px solid var(--rule); padding: 32px 0 36px; }
+.cv-section > h2 { margin: 4px 0 0; font-size: 14px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--dim); }
+.cv-entry + .cv-entry { margin-top: 28px; }
+.cv-entry .line { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 24px; flex-wrap: wrap; }
+.cv-entry h3 { margin: 0; font-size: 19px; font-weight: 400; }
+.cv-entry h3 a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; }
+.cv-entry h3 a:hover { text-decoration-color: var(--ink); }
+.cv-entry .role { margin-top: 2px; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+.cv-entry .when { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
+.cv-entry p { margin: 8px 0 0; line-height: 1.65; }
+.cv-entry ul { margin: 10px 0 0; padding-left: 1.1em; }
+.cv-entry li { margin: 6px 0; line-height: 1.6; }
+.cv-entry .me { font-weight: 400; }
+.cv-list { margin: 0; padding: 0; list-style: none; }
+.cv-list li + li { margin-top: 18px; }
+.cv-list li { line-height: 1.6; }
+.cv-list .meta { display: block; margin-top: 4px; font-size: 15px; color: var(--dim); }
+.cv-list a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; overflow-wrap: anywhere; }
+@media (max-width: 760px) { .cv-section { grid-template-columns: 1fr; } }
