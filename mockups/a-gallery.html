@@ -16,10 +16,11 @@
   .name { font-size:clamp(26px,3vw,44px); font-weight:400; letter-spacing:.04em; text-transform:uppercase; white-space:nowrap; }
   .name small { display:block; text-align:center; font-size:12px; letter-spacing:.42em; color:var(--dim); margin-top:6px; }
   .icons { justify-self:end; display:flex; gap:22px; font-size:15px; letter-spacing:.1em; color:var(--dim); }
-  .filters { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; padding:0 16px 40px; }
-  .filters button { font:400 13px "Jost"; letter-spacing:.18em; text-transform:uppercase; background:none; color:var(--dim);
-    border:1px solid #333; border-radius:99px; padding:9px 18px; cursor:pointer; }
-  .filters button.on { color:#111; background:var(--ink); border-color:var(--ink); }
+  .filters { display:flex; justify-content:center; flex-wrap:wrap; gap:4px 28px; padding:0 16px 40px; }
+  .filters button { font:300 19px "Jost", "Futura", sans-serif; letter-spacing:.04em; text-transform:uppercase;
+    background:none; border:0; padding:0; color:var(--dim); cursor:pointer; }
+  .filters button.on, .filters button:hover { color:var(--ink); }
+  .tile.hide { display:none; }
   .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--gap); padding:0 clamp(16px,4vw,80px) 80px; }
   .tile { position:relative; aspect-ratio:16/9; overflow:hidden; background:#222; }
   .tile img { width:100%; height:100%; object-fit:cover; transition:transform .8s cubic-bezier(.2,.7,.2,1), filter .5s; }
@@ -29,11 +30,9 @@
   .tile:hover .cap, .tile.demo .cap { opacity:1; }
   .cap h3 { margin:0; font-size:26px; font-weight:400; letter-spacing:.02em; }
   .cap span { font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:#cfcfcf; }
-  .tile.wide { grid-column:span 2; aspect-ratio:21/9; background:#000; }
-  .tile.wide img { object-fit:contain; }
   @media (max-width:760px){
     header { grid-template-columns:1fr; text-align:center; } nav, .icons { justify-content:center; justify-self:center; }
-    .grid { grid-template-columns:1fr; } .tile.wide { grid-column:auto; aspect-ratio:16/9; }
+    .grid { grid-template-columns:1fr; }
   }
 </style>
 </head>
@@ -44,14 +43,20 @@
   <div class="icons"><a href="#">IN</a><a href="#">✉</a></div>
 </header>
 <div class="filters">
-  <button class="on">All</button><button>Industrial Design</button><button>Engineering</button><button>Science</button>
+  <button class="on" data-f="all">All</button><button data-f="id">Industrial Design</button><button data-f="eng">Engineering</button><button data-f="sci">Science</button>
 </div>
 <main class="grid">
-  <a class="tile wide demo" href="#"><img src="img/mechanism.jpg" alt=""><div class="cap"><span>PhD Research · Featured</span><h3>Research Instrument</h3></div></a>
-  <a class="tile" href="#"><img src="img/drone.jpg" alt=""><div class="cap"><span>Engineering</span><h3>Aerial Vehicle</h3></div></a>
-  <a class="tile" href="#"><img src="img/hex.jpg" alt=""><div class="cap"><span>Industrial Design</span><h3>Hex Tile System</h3></div></a>
-  <a class="tile" href="#"><img src="img/binding.jpg" alt=""><div class="cap"><span>Industrial Design</span><h3>Binding Mechanism</h3></div></a>
-  <a class="tile" href="#"><img src="img/drone.jpg" alt="" style="filter:hue-rotate(140deg)"><div class="cap"><span>Engineering</span><h3>Next Project</h3></div></a>
+  <a class="tile" href="#" data-tags="eng sci"><img src="img/mechanism.jpg" alt=""><div class="cap"><span>Engineering · Science</span><h3>Research Instrument</h3></div></a>
+  <a class="tile" href="#" data-tags="eng"><img src="img/drone.jpg" alt=""><div class="cap"><span>Engineering</span><h3>Aerial Vehicle</h3></div></a>
+  <a class="tile" href="#" data-tags="id"><img src="img/binding.jpg" alt=""><div class="cap"><span>Industrial Design</span><h3>Binding Mechanism</h3></div></a>
+  <a class="tile" href="#" data-tags="id"><img src="img/hex.jpg" alt=""><div class="cap"><span>Industrial Design</span><h3>Hex Tile System</h3></div></a>
 </main>
+<script>
+  const btns=document.querySelectorAll('.filters button'), tiles=document.querySelectorAll('.tile');
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    btns.forEach(x=>x.classList.toggle('on',x===b));
+    tiles.forEach(t=>t.classList.toggle('hide', b.dataset.f!=='all' && !t.dataset.tags.split(' ').includes(b.dataset.f)));
+  }));
+</script>
 </body>
 </html>
