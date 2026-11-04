@@ -102,6 +102,8 @@ img { display: block; max-width: 100%; height: auto; }
 .story h2 { margin: 0 0 14px; font-size: 14px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--dim);
   border-top: 1px solid #d9d5cc; padding-top: 18px; }
 .story p { margin: 0 0 1em; font-size: 18px; line-height: 1.7; }
+.story .pull { margin: 32px 0 0; padding: 4px 0 4px 24px; border-left: 2px solid var(--ink);
+  font-size: clamp(20px, 2.2vw, 26px); line-height: 1.45; font-weight: 300; font-style: italic; }
 
 .pager { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; max-width: 1600px; margin: 64px auto 0;
   padding-top: 24px; border-top: 1px solid #d9d5cc; font-size: 17px; letter-spacing: .06em; text-transform: uppercase; }
