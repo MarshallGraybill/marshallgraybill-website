@@ -21,7 +21,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=39f32fb6">
+  <link rel="stylesheet" href="../css/style.css?v=274badcf">
 </head>
 <body>
 
@@ -69,6 +69,51 @@
       <figure class="white" style="--ar:0.312"><img src="../images/projects/trimble-lidar/exploded.webp" alt="Exploded view of the enclosure: cap, electronics plate, clear window ring, LiDAR, mounting plates, cable, wire-rope isolators, and base plate" loading="lazy"><figcaption>Exploded view</figcaption></figure>
     </div>
     <figure class="white" style="max-width:1000px;margin:40px auto 0"><img src="../images/projects/trimble-lidar/iterations.webp" alt="Design iteration diagram: viewing-window and removable-cap concepts leading to the final design" loading="lazy"><figcaption>Design iterations · viewing window and removable cap concepts toward the final design</figcaption></figure>
+  </div>
+
+  <div class="dig-site" aria-hidden="true">
+    <svg viewBox="0 0 600 180" role="presentation">
+      <!-- ground and dirt piles -->
+      <path class="dirt-dark" d="M112 151 C126 134 140 118 160 114 C178 110 196 122 212 140 L220 151 Z"/>
+      <path class="dirt" d="M118 151 C132 138 146 125 162 122 C178 120 192 130 206 143 L212 151 Z"/>
+      <path class="dirt-dark" d="M366 151 C380 140 396 128 414 126 C432 124 452 136 468 151 Z"/>
+      <path class="dirt" d="M374 151 C388 142 402 133 416 132 C430 131 446 140 458 151 Z"/>
+      <line class="ground" x1="40" y1="151" x2="560" y2="151"/>
+      <!-- falling dirt when dumping (drawn outside the swinging body) -->
+      <g class="spill"><circle cx="384" cy="0" r="3"/><circle cx="391" cy="0" r="2.4"/><circle cx="379" cy="0" r="2"/></g>
+
+      <!-- tracks -->
+      <rect class="ink" x="250" y="132" width="104" height="19" rx="9.5"/>
+      <g class="wheel-dots"><circle cx="261" cy="141.5" r="3.2"/><circle cx="281" cy="141.5" r="3.2"/><circle cx="302" cy="141.5" r="3.2"/><circle cx="323" cy="141.5" r="3.2"/><circle cx="343" cy="141.5" r="3.2"/></g>
+
+      <!-- upper body: swings (flips) to dump on the other side -->
+      <g class="upper">
+        <rect class="ink" x="272" y="126" width="62" height="7" rx="2"/>
+        <path class="body" d="M300 104 L350 104 Q354 104 354 108 L354 128 L300 128 Z"/>
+        <rect class="body-dark" x="340" y="110" width="14" height="18" rx="2"/>
+        <path class="body" d="M282 128 L282 96 Q282 90 288 90 L318 90 Q324 90 324 96 L324 128 Z"/>
+        <path class="glass" d="M287 95 L306 95 L306 112 L287 112 Z"/>
+        <!-- LiDAR puck on the cab roof, with a sweeping scan -->
+        <path class="beam" d="M306 84 L262 70 L262 98 Z"/>
+        <rect class="silver" x="300" y="84" width="12" height="5" rx="1.5"/>
+        <rect class="ink" x="299" y="81" width="14" height="4" rx="2"/>
+
+        <!-- boom → stick → bucket, each rotating about its own pin -->
+        <g class="boom">
+          <path class="arm" d="M290 107 L222 107 Q216 112 222 117 L290 117 Z"/>
+          <circle class="pin" cx="288" cy="112" r="3"/>
+          <g class="stick">
+            <rect class="arm-dark" x="213.5" y="110" width="9" height="54" rx="3"/>
+            <circle class="pin" cx="218" cy="112" r="3"/>
+            <g class="bucket">
+              <path class="ink" d="M222 160 L204 160 Q196 168 200 176 L206 175 L208 169 L214 169 L216 175 L222 175 Z"/>
+              <g class="load"><circle cx="210" cy="163" r="4.2"/><circle cx="216" cy="162" r="3.6"/><circle cx="206" cy="166" r="3"/></g>
+              <circle class="pin" cx="218" cy="162" r="2.6"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
   </div>
 
   <nav class="pager" aria-label="Projects">
