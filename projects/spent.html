@@ -21,7 +21,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=274badcf">
+  <link rel="stylesheet" href="../css/style.css?v=b969990c">
 </head>
 <body>
 
@@ -104,6 +104,34 @@
     <figure><img src="../images/projects/spent/mold.jpg" alt="Two-part 3D-printed compression mold: a plug above and a matching cavity below" loading="lazy"><figcaption>Custom 3D-printed compression mold</figcaption></figure>
   </div>
 
+  <div class="scene scene-compost" aria-hidden="true">
+    <svg viewBox="0 0 600 180" role="presentation">
+      <line class="ground" x1="40" y1="151" x2="560" y2="151"/>
+      <!-- sprout grows out of the compost -->
+      <g class="sprout">
+        <path class="stem" d="M300 124 C300 110 298 98 300 86" />
+        <g class="leaf-l"><path class="leaf" d="M300 96 C290 92 282 84 284 76 C294 76 300 86 300 96 Z"/></g>
+        <g class="leaf-r"><path class="leaf" d="M300 90 C310 86 318 78 316 70 C306 70 300 80 300 90 Z"/></g>
+      </g>
+      <path class="soil" d="M220 151 C232 132 262 118 300 116 C338 118 368 132 380 151 Z"/>
+      <g class="grain"><circle cx="262" cy="138" r="1.6"/><circle cx="286" cy="128" r="1.4"/><circle cx="326" cy="132" r="1.6"/><circle cx="346" cy="142" r="1.4"/><circle cx="304" cy="142" r="1.5"/></g>
+      <!-- apple core -->
+      <path class="apple" d="M236 140 C230 132 234 124 240 128 C242 132 242 136 244 140 C244 144 246 148 240 150 C234 150 232 146 236 140 Z"/>
+      <path class="core" d="M240 129 C238 136 238 143 240 149"/><line class="stalk" x1="239" y1="128" x2="241" y2="122"/>
+      <!-- banana peel -->
+      <path class="banana" d="M334 140 C340 128 352 124 360 128 C354 130 348 134 346 140 C352 136 360 138 364 144 C356 144 348 146 342 148 C338 148 334 146 334 140 Z"/>
+      <!-- eggshell halves -->
+      <path class="egg" d="M270 132 C270 124 282 124 282 132 L280 130 L278 133 L276 129 L274 133 L272 130 Z"/>
+      <path class="egg" d="M314 128 C312 122 322 118 326 124 L323 124 L322 127 L319 124 L317 128 Z"/>
+      <!-- carrot top -->
+      <path class="carrot" d="M290 136 L300 134 L296 146 Z"/>
+      <path class="carrot-leaf" d="M297 135 C296 128 292 124 288 122 M298 135 C300 128 304 124 306 120"/>
+      <!-- worm peeking out -->
+      <clipPath id="worm-hole"><rect x="350" y="120" width="40" height="31"/></clipPath>
+      <g clip-path="url(#worm-hole)"><g class="worm"><path d="M362 151 C362 142 370 140 372 146 C374 150 372 151 372 151" /></g></g>
+    </svg>
+  </div>
+
   <nav class="pager" aria-label="Projects">
     <a href="p49-ski-brake.html">← P49 Ski Brake</a>
     <a href="bvm-ventilator.html">Next: BVM Ventilator →</a>
@@ -111,6 +139,6 @@
 </main>
 
 <footer class="site-footer">© Marshall Graybill</footer>
-<script src="../js/site.js?v=45601ca0" defer></script>
+<script src="../js/site.js?v=da93767b" defer></script>
 </body>
 </html>

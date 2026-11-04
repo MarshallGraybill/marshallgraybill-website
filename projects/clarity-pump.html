@@ -21,7 +21,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=274badcf">
+  <link rel="stylesheet" href="../css/style.css?v=b969990c">
 </head>
 <body>
 
@@ -61,6 +61,27 @@
     </div>
   </div>
 
+  <div class="scene scene-geyser" aria-hidden="true">
+    <svg viewBox="0 0 600 180" role="presentation">
+      <line class="ground" x1="40" y1="151" x2="560" y2="151"/>
+      <!-- water column -->
+      <g class="gey-col">
+        <path class="gey-water" d="M290 151 C292 110 288 80 293 46 C296 36 304 36 307 46 C312 80 308 110 310 151 Z"/>
+        <path class="gey-hi" d="M297 150 C298 110 296 82 298 52 C299 46 301 46 301 52 C302 82 301 110 302 150 Z"/>
+      </g>
+      <g class="gey-top"><circle cx="300" cy="44" r="10"/><circle cx="288" cy="50" r="7"/><circle cx="312" cy="50" r="7"/></g>
+      <!-- droplets arcing out -->
+      <g class="gey-drop d1"><circle cx="0" cy="0" r="3.2"/></g>
+      <g class="gey-drop d2"><circle cx="0" cy="0" r="2.6"/></g>
+      <g class="gey-drop d3"><circle cx="0" cy="0" r="3"/></g>
+      <g class="gey-drop d4"><circle cx="0" cy="0" r="2.2"/></g>
+      <!-- rocky vent -->
+      <path class="rock" d="M262 151 C266 140 278 136 290 140 L310 140 C322 136 334 140 338 151 Z"/>
+      <path class="rock-dark" d="M276 151 C280 146 286 144 292 146 L308 146 C314 144 320 146 324 151 Z"/>
+      <ellipse class="puddle" cx="300" cy="153" rx="70" ry="4"/>
+    </svg>
+  </div>
+
   <nav class="pager" aria-label="Projects">
     <a href="wren.html">← Wren</a>
     <a href="flavor-bottle.html">Next: Flavor Dispensing Bottle →</a>
@@ -68,6 +89,6 @@
 </main>
 
 <footer class="site-footer">© Marshall Graybill</footer>
-<script src="../js/site.js?v=45601ca0" defer></script>
+<script src="../js/site.js?v=da93767b" defer></script>
 </body>
 </html>

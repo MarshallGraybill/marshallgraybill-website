@@ -166,5 +166,48 @@
     paint();
   }
 
-  document.addEventListener('DOMContentLoaded', () => { setup(); filters(); footerPenguin(); swimmer(); ocean(); });
+  /* ---------- P49 page: a skier carves S-turns down the page as you scroll ----------
+     The skier sits at mid-screen height in page terms, so scrolling moves it down the
+     run; its sideways position follows a sine wave, and the ski tracks draw in behind it. */
+  function skiRun() {
+    const run = document.querySelector('.ski-run');
+    if (!run) return;
+    const main = run.parentElement, skier = run.querySelector('.skier-run');
+    const tA = run.querySelector('.track.a'), tB = run.querySelector('.track.b');
+    let W, H, laneX, amp, period, startY, endY, ticking = false;
+    const measure = () => {
+      W = main.clientWidth; H = main.scrollHeight;
+      const edge = parseFloat(getComputedStyle(main).paddingRight) || 40;
+      amp = Math.max(10, Math.min(26, edge * .42));
+      laneX = W - edge / 2;                          // centre of the right-hand margin
+      period = 620;                                  // one left-right-left turn every 620px
+      startY = 40; endY = H - 120;
+      draw();
+    };
+    const xAt = y => laneX + amp * Math.sin((y - startY) / period * Math.PI * 2);
+    const draw = () => {
+      ticking = false;
+      const top = main.getBoundingClientRect().top + scrollY;
+      const y = Math.min(endY, Math.max(startY, scrollY + innerHeight * .5 - top));
+      const x = xAt(y), dx = xAt(y + 2) - xAt(y - 2);
+      const heading = Math.atan2(4, dx) * 180 / Math.PI;   // direction of travel (down the page = 90°)
+      skier.style.transform = `translate(${x}px, ${y}px) rotate(${heading}deg)`;
+      // tracks: two parallel lines from the start down to the skier
+      let a = '', b = '';
+      for (let yy = startY; yy <= y; yy += 6) {
+        const xx = xAt(yy), ang = Math.atan2(4, xAt(yy + 2) - xAt(yy - 2));
+        const ox = Math.sin(ang) * 3.5, oy = -Math.cos(ang) * 3.5;
+        a += (a ? 'L' : 'M') + (xx + ox).toFixed(1) + ' ' + (yy + oy).toFixed(1);
+        b += (b ? 'L' : 'M') + (xx - ox).toFixed(1) + ' ' + (yy - oy).toFixed(1);
+      }
+      tA.setAttribute('d', a); tB.setAttribute('d', b);
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(draw); } };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', () => requestAnimationFrame(measure));
+    addEventListener('load', measure);
+    measure();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => { setup(); filters(); footerPenguin(); swimmer(); ocean(); skiRun(); });
 })();

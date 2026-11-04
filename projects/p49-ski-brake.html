@@ -21,7 +21,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=274badcf">
+  <link rel="stylesheet" href="../css/style.css?v=b969990c">
 </head>
 <body>
 
@@ -40,7 +40,17 @@
   </div>
 </header>
 
-<main class="project">
+<main class="project ski-page">
+  <!-- A skier carves S-turns down the right margin as the page scrolls (js/site.js → skiRun) -->
+  <div class="ski-run" aria-hidden="true">
+    <svg class="ski-tracks"><path class="track a"/><path class="track b"/></svg>
+    <div class="skier-run"><svg viewBox="-20 -20 40 40">
+      <line class="ski" x1="-14" y1="-4" x2="15" y2="-4"/><line class="ski" x1="-14" y1="4" x2="15" y2="4"/>
+      <line class="pole" x1="2" y1="-7" x2="-10" y2="-13"/><line class="pole" x1="2" y1="7" x2="-10" y2="13"/>
+      <ellipse class="jacket" cx="0" cy="0" rx="5.5" ry="7.5"/>
+      <circle class="helmet" cx="3" cy="0" r="3.6"/>
+    </svg></div>
+  </div>
   <section class="project-head">
     <div class="kicker">Engineering · Product Design</div>
     <h1>P49 Ski Brake</h1>
@@ -69,6 +79,6 @@
 </main>
 
 <footer class="site-footer">© Marshall Graybill</footer>
-<script src="../js/site.js?v=45601ca0" defer></script>
+<script src="../js/site.js?v=da93767b" defer></script>
 </body>
 </html>

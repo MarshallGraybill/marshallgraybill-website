@@ -298,3 +298,122 @@ body[data-ocean] .ph { transition: color .5s ease, border-color .5s ease; }
 @keyframes dig-spill  { 0%, 59% { opacity: 0; transform: translateY(118px); } 61% { opacity: 1; transform: translateY(124px); } 70% { opacity: 1; transform: translateY(146px); } 72%, 100% { opacity: 0; transform: translateY(148px); } }
 @keyframes lidar-scan { from { transform: rotate(-14deg); opacity: .5; } to { transform: rotate(14deg); opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .dig-site * { animation: none !important; } .dig-site .load { opacity: 0; } }
+
+/* ==========================================================================
+   Little project scenes at the bottom of project pages (flat SVG, CSS motion)
+   ========================================================================== */
+.scene { max-width: 760px; margin: 72px auto 0; }
+.scene svg { display: block; width: 100%; height: auto; overflow: visible; }
+.scene .ground { stroke: var(--rule); stroke-width: 1.5; }
+.scene g, .scene path, .scene circle, .scene ellipse { transform-box: view-box; }
+
+/* Wren page: a wren flies past in bounding swoops */
+.scene-wren .twig { fill: none; stroke: #7a5a3c; stroke-width: 3; stroke-linecap: round; }
+.scene-wren .leaf { fill: #7b9a5b; }
+.wren-body, .wren-tail { fill: #8a6440; } .wren-belly { fill: #d2b48c; } .wren-beak { fill: #3b2f25; }
+.wren-eye { fill: #1b1a18; } .wren-brow { stroke: #f1e6d4; stroke-width: 1.4; stroke-linecap: round; }
+.wren-wing path { fill: #6b4a2f; }
+.wren-x { animation: wren-x 8s linear infinite; }
+.wren-y { animation: wren-y .62s ease-in-out infinite alternate; }
+.wren-wing { transform-origin: 2px -4px; animation: wren-flap .16s ease-in-out infinite alternate; }
+.wren-tail { transform-origin: -12px -2px; animation: wren-tail .62s ease-in-out infinite alternate; }
+@keyframes wren-x { 0% { transform: translate(-60px, 92px); } 62% { transform: translate(660px, 58px); } 100% { transform: translate(660px, 58px); } }
+@keyframes wren-y { from { transform: translateY(-9px); } to { transform: translateY(9px); } }
+@keyframes wren-flap { from { transform: scaleY(1); } to { transform: scaleY(-.75); } }
+@keyframes wren-tail { from { transform: rotate(-6deg); } to { transform: rotate(8deg); } }
+
+/* Pump page: a little water geyser */
+.gey-water { fill: #8cc4d6; } .gey-hi { fill: #d8edf3; } .gey-top circle, .gey-drop circle { fill: #8cc4d6; }
+.scene-geyser .rock { fill: #8f8a80; } .scene-geyser .rock-dark { fill: #6f6a61; } .scene-geyser .puddle { fill: rgba(140,196,214,.35); }
+.gey-col { transform-origin: 300px 151px; animation: gey-col 5s ease-in-out infinite; }
+.gey-top { transform-origin: 300px 46px; animation: gey-top 5s ease-in-out infinite; }
+.gey-drop { opacity: 0; animation: 5s ease-in-out infinite; }
+.gey-drop.d1 { animation-name: gey-d1; } .gey-drop.d2 { animation-name: gey-d2; } .gey-drop.d3 { animation-name: gey-d3; } .gey-drop.d4 { animation-name: gey-d4; }
+@keyframes gey-col { 0% { transform: scaleY(.04); } 9% { transform: scaleY(1.04); } 20% { transform: scaleY(.9); } 31% { transform: scaleY(1); } 43% { transform: scaleY(.88); } 55% { transform: scaleY(.97); } 66%, 100% { transform: scaleY(.04); } }
+@keyframes gey-top { 0% { transform: translateY(103px) scale(.2); opacity: 0; } 9% { transform: translateY(-4px); opacity: 1; } 20% { transform: translateY(11px); } 31% { transform: translateY(0); } 43% { transform: translateY(13px); } 55% { transform: translateY(3px); opacity: 1; } 66%, 100% { transform: translateY(103px) scale(.2); opacity: 0; } }
+@keyframes gey-d1 { 0%, 10% { opacity: 0; transform: translate(298px, 48px); } 12% { opacity: 1; } 20% { transform: translate(272px, 26px); } 30% { transform: translate(252px, 82px); } 36% { opacity: 1; transform: translate(244px, 150px); } 37%, 100% { opacity: 0; transform: translate(244px, 150px); } }
+@keyframes gey-d2 { 0%, 16% { opacity: 0; transform: translate(302px, 50px); } 18% { opacity: 1; } 26% { transform: translate(330px, 30px); } 36% { transform: translate(350px, 88px); } 42% { opacity: 1; transform: translate(358px, 150px); } 43%, 100% { opacity: 0; transform: translate(358px, 150px); } }
+@keyframes gey-d3 { 0%, 30% { opacity: 0; transform: translate(299px, 50px); } 32% { opacity: 1; } 40% { transform: translate(280px, 34px); } 48% { transform: translate(266px, 92px); } 53% { opacity: 1; transform: translate(260px, 150px); } 54%, 100% { opacity: 0; transform: translate(260px, 150px); } }
+@keyframes gey-d4 { 0%, 38% { opacity: 0; transform: translate(301px, 52px); } 40% { opacity: 1; } 47% { transform: translate(318px, 40px); } 54% { transform: translate(334px, 96px); } 59% { opacity: 1; transform: translate(340px, 150px); } 60%, 100% { opacity: 0; transform: translate(340px, 150px); } }
+
+/* Flavor bottle page: a little pile of fruit (a blueberry drops in now and then) */
+.scene-fruit .orange { fill: #e8873a; } .scene-fruit .orange-dot { fill: #f2b07a; } .scene-fruit .lemon { fill: #e9c13b; }
+.scene-fruit .lime { fill: #8fb04a; } .scene-fruit .straw { fill: #d24a43; } .scene-fruit .straw-leaf, .scene-fruit .mint { fill: #6f9a52; }
+.scene-fruit .seeds circle { fill: #f6d78a; } .scene-fruit .blue { fill: #3a4f7a; }
+.fruit-rock { transform-origin: 236px 151px; animation: fruit-rock 3.2s ease-in-out infinite alternate; }
+.berry-drop { opacity: 0; animation: berry-drop 5s ease-in infinite; }
+@keyframes fruit-rock { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+@keyframes berry-drop { 0%, 30% { opacity: 0; transform: translateY(-20px); } 32% { opacity: 1; transform: translateY(-20px); } 44% { transform: translateY(114px); animation-timing-function: ease-out; } 50% { transform: translateY(100px); animation-timing-function: ease-in; } 56% { transform: translateY(114px); } 80% { opacity: 1; transform: translateY(114px); } 86%, 100% { opacity: 0; transform: translateY(114px); } }
+
+/* Kohler Splash page: a water droplet falls and splashes */
+.scene-drop .pool { fill: rgba(140,196,214,.45); } .scene-drop .drop, .crown circle { fill: #5fa6c0; }
+.ripple ellipse { fill: none; stroke: #2a6f8f; stroke-width: 1.2; }
+.drop-fall { animation: drop-fall 2.8s ease-in infinite; }
+.ripple { transform-origin: 300px 148px; opacity: 0; animation: ripple 2.8s ease-out infinite; }
+.ripple.r2 { animation-name: ripple2; }
+.crown { opacity: 0; animation: 2.8s ease-out infinite; }
+.crown.c1 { animation-name: crown1; } .crown.c2 { animation-name: crown2; } .crown.c3 { animation-name: crown3; } .crown.c4 { animation-name: crown4; }
+@keyframes drop-fall { 0% { opacity: 0; transform: translateY(0); } 6% { opacity: 1; } 40% { opacity: 1; transform: translateY(128px); } 41%, 100% { opacity: 0; transform: translateY(128px); } }
+@keyframes ripple { 0%, 40% { opacity: 0; transform: scale(.2); } 42% { opacity: .9; } 100% { opacity: 0; transform: scale(3.4); } }
+@keyframes ripple2 { 0%, 52% { opacity: 0; transform: scale(.2); } 54% { opacity: .7; } 100% { opacity: 0; transform: scale(2.4); } }
+@keyframes crown1 { 0%, 40% { opacity: 0; transform: translate(300px, 146px); } 41% { opacity: 1; } 52% { transform: translate(282px, 122px); } 66% { opacity: 1; transform: translate(274px, 147px); } 67%, 100% { opacity: 0; transform: translate(274px, 147px); } }
+@keyframes crown2 { 0%, 40% { opacity: 0; transform: translate(300px, 146px); } 41% { opacity: 1; } 52% { transform: translate(318px, 118px); } 66% { opacity: 1; transform: translate(328px, 147px); } 67%, 100% { opacity: 0; transform: translate(328px, 147px); } }
+@keyframes crown3 { 0%, 40% { opacity: 0; transform: translate(300px, 146px); } 41% { opacity: 1; } 54% { transform: translate(294px, 108px); } 70% { opacity: 1; transform: translate(290px, 147px); } 71%, 100% { opacity: 0; transform: translate(290px, 147px); } }
+@keyframes crown4 { 0%, 40% { opacity: 0; transform: translate(300px, 146px); } 41% { opacity: 1; } 51% { transform: translate(308px, 126px); } 63% { opacity: 1; transform: translate(312px, 147px); } 64%, 100% { opacity: 0; transform: translate(312px, 147px); } }
+
+/* P49 page: a skier carves S-turns down the page as you scroll (seen from above) */
+.ski-page { position: relative; }
+.ski-run { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.ski-tracks { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; }
+.ski-tracks .track { fill: none; stroke: rgba(154,167,176,.55); stroke-width: 1.4; stroke-linecap: round; }
+.skier-run { position: absolute; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; will-change: transform; }
+.skier-run svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.skier-run .ski { stroke: #1b1a18; stroke-width: 2.2; stroke-linecap: round; }
+.skier-run .pole { stroke: #5d5a55; stroke-width: 1.2; stroke-linecap: round; }
+.skier-run .jacket { fill: #d4593a; } .skier-run .helmet { fill: #1b1a18; }
+@media (max-width: 900px) { .ski-run { display: none; } }
+
+/* Spent page: food scraps compost and a sprout grows */
+.scene-compost .soil { fill: #5b4330; } .scene-compost .grain circle { fill: #7a5a3c; }
+.scene-compost .stem { fill: none; stroke: #6f9a52; stroke-width: 3; stroke-linecap: round; } .scene-compost .leaf { fill: #7b9a5b; }
+.scene-compost .apple { fill: #d24a43; } .scene-compost .core { fill: none; stroke: #f3e2c0; stroke-width: 2.5; stroke-linecap: round; }
+.scene-compost .stalk { stroke: #5b4330; stroke-width: 1.6; stroke-linecap: round; }
+.scene-compost .banana { fill: #e9c13b; stroke: #a8862a; stroke-width: 1; }
+.scene-compost .egg { fill: #f6efe3; stroke: #d8cbb5; stroke-width: 1; }
+.scene-compost .carrot { fill: #e8873a; } .scene-compost .carrot-leaf { fill: none; stroke: #6f9a52; stroke-width: 1.8; stroke-linecap: round; }
+.scene-compost .worm path { fill: none; stroke: #c98a86; stroke-width: 4.5; stroke-linecap: round; }
+.sprout { transform-origin: 300px 124px; animation: sprout 7s ease-in-out infinite; }
+.leaf-l { transform-origin: 300px 96px; animation: leaf-open 7s ease-in-out infinite; }
+.leaf-r { transform-origin: 300px 90px; animation: leaf-open 7s ease-in-out .25s infinite; }
+.worm { transform-origin: 367px 151px; animation: worm 4s ease-in-out infinite; }
+@keyframes sprout { 0% { transform: scale(0); } 25%, 80% { transform: scale(1); } 95%, 100% { transform: scale(0); } }
+@keyframes leaf-open { 0%, 15% { transform: scale(0); } 32%, 80% { transform: scale(1); } 92%, 100% { transform: scale(0); } }
+@keyframes worm { 0%, 30% { transform: translateY(12px); } 45% { transform: translateY(0) skewX(-6deg); } 55% { transform: translateY(0) skewX(6deg); } 65% { transform: translateY(0) skewX(-4deg); } 80%, 100% { transform: translateY(12px); } }
+
+/* PhD Research page: a gentoo swims beneath icebergs (drawn for the deep-water end of the page) */
+.scene-ice .surface { stroke: rgba(236,241,243,.45); stroke-width: 1.2; }
+.scene-ice .berg { fill: #f4f8fa; } .scene-ice .berg-under { fill: rgba(220,236,242,.16); }
+.pg-body { fill: #141414; stroke: rgba(236,241,243,.35); stroke-width: .8; } .pg-belly, .pg-band, .pg-eye { fill: #ffffff; }
+.pg-beak, .pg-foot { fill: #e8642c; } .pg-flipper path { fill: #141414; stroke: rgba(236,241,243,.3); stroke-width: .6; }
+.bub circle { fill: none; stroke: rgba(220,236,242,.7); stroke-width: 1; }
+.pg-x { animation: pg-x 10s linear infinite; }
+.pg-y { animation: pg-y 1.3s ease-in-out infinite alternate; }
+.pg { animation: pg-tilt 1.3s ease-in-out infinite alternate; }
+.pg-flipper { transform-origin: 4px -1px; animation: pg-flap .32s ease-in-out infinite alternate; }
+.bub { opacity: 0; animation: 10s linear infinite; }
+.bub.b1 { animation-name: bub1; } .bub.b2 { animation-name: bub2; } .bub.b3 { animation-name: bub3; }
+@keyframes pg-x { 0% { transform: translate(-60px, 140px); } 100% { transform: translate(660px, 128px); } }
+@keyframes pg-y { from { transform: translateY(-6px); } to { transform: translateY(6px); } }
+@keyframes pg-tilt { from { transform: rotate(-5deg); } to { transform: rotate(5deg); } }
+@keyframes pg-flap { from { transform: rotate(-38deg); } to { transform: rotate(26deg); } }
+@keyframes bub1 { 0%, 22% { opacity: 0; transform: translate(98px, 134px); } 24% { opacity: .9; } 40% { opacity: 0; transform: translate(92px, 60px); } 100% { opacity: 0; transform: translate(92px, 60px); } }
+@keyframes bub2 { 0%, 50% { opacity: 0; transform: translate(296px, 132px); } 52% { opacity: .9; } 68% { opacity: 0; transform: translate(302px, 56px); } 100% { opacity: 0; transform: translate(302px, 56px); } }
+@keyframes bub3 { 0%, 72% { opacity: 0; transform: translate(452px, 130px); } 74% { opacity: .9; } 90% { opacity: 0; transform: translate(446px, 58px); } 100% { opacity: 0; transform: translate(446px, 58px); } }
+
+/* Reduce motion: every scene shows as a still picture */
+@media (prefers-reduced-motion: reduce) {
+  .scene * { animation: none !important; }
+  .wren-x { transform: translate(300px, 74px); }
+  .gey-drop, .berry-drop, .drop-fall, .crown, .ripple { display: none; }
+  .pg-x { transform: translate(260px, 130px); } .bub { display: none; }
+}
