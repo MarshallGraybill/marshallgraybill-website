@@ -7,81 +7,72 @@
   <meta name="description" content="Marshall Graybill: industrial designer, engineer, and scientist.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="index.html">
-      <strong>Marshall Graybill</strong>
-      <span>Design · Engineering · Science</span>
-    </a>
-    <nav class="nav" aria-label="Main">
-      <a href="index.html" aria-current="page">Work</a>
-      <a href="research.html">Research</a>
-      <a href="about.html">About</a>
-    </nav>
+  <nav class="nav" aria-label="Main">
+    <a class="on" href="index.html">Work</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="cv.html">CV</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a class="name" href="index.html">Marshall Graybill</a>
+  <div class="icons">
+    <!-- TODO: add your LinkedIn URL and email address -->
+    <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.79-1.7-2.79-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg></a>
+    <a href="mailto:" aria-label="Email"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm0 2.86V17h16V9.86l-8 5z"/></svg></a>
   </div>
 </header>
 
-<main class="wrap">
-  <section class="intro">
-    <p class="label">Portfolio</p>
-    <!-- TODO: replace with your own one-line statement -->
-    <h1>Designing physical products from first principles.</h1>
-    <p>Industrial designer, engineer, and PhD researcher. My work moves from user research and form development through mechanical engineering and scientific testing.</p>
-    <ul class="disciplines">
-      <li>Industrial Design</li>
-      <li>Engineering</li>
-      <li>Science</li>
-    </ul>
-  </section>
+<div class="filters" role="group" aria-label="Filter projects">
+  <button class="on" data-f="all">All</button>
+  <button data-f="id">Industrial Design</button>
+  <button data-f="eng">Engineering</button>
+  <button data-f="sci">Science</button>
+</div>
 
-  <section aria-labelledby="work-h">
-    <div class="section-head">
-      <h2 id="work-h">Selected Work</h2>
-      <span class="label">Index</span>
-    </div>
+<!--
+  PROJECT GRID — one <a class="tile"> per project.
+  data-tags: any of  id  eng  sci  (space separated) — controls the sorting tabs.
+-->
+<main class="grid">
+  <a class="tile" href="projects/canyon-house.html" data-tags="id">
+    <img src="images/projects/canyon-house/cover.jpg" alt="Canyon House exterior render">
+    <div class="cap"><span>Architecture · Industrial Design</span><h3>Canyon House</h3></div>
+  </a>
 
-    <!--
-      PROJECT GRID
-      Copy one <a class="card"> block per project.
-      - href: the project's page in /projects/
-      - img:  a 4:3 cover image in /images/projects/
-    -->
-    <div class="grid">
-      <a class="card" href="projects/project-one.html">
-        <div class="thumb"><div class="ph">Cover image</div></div>
-        <div class="meta"><span class="label">01 — Industrial Design</span><span class="label">2025</span></div>
-        <h3>Project One</h3>
-      </a>
-      <a class="card" href="projects/project-one.html">
-        <div class="thumb"><div class="ph">Cover image</div></div>
-        <div class="meta"><span class="label">02 — Engineering</span><span class="label">2024</span></div>
-        <h3>Project Two</h3>
-      </a>
-      <a class="card" href="projects/project-one.html">
-        <div class="thumb"><div class="ph">Cover image</div></div>
-        <div class="meta"><span class="label">03 — Product</span><span class="label">2023</span></div>
-        <h3>Project Three</h3>
-      </a>
-      <a class="card" href="research.html">
-        <div class="thumb"><div class="ph">Research figure</div></div>
-        <div class="meta"><span class="label">04 — PhD Research</span><span class="label">Ongoing</span></div>
-        <h3>Doctoral Research</h3>
-      </a>
-    </div>
-  </section>
+  <!-- Placeholders below: images cropped from the old site until full-size files are added -->
+  <a class="tile" href="#" data-tags="eng sci">
+    <img src="images/projects/placeholder/mechanism.jpg" alt="">
+    <div class="cap"><span>Engineering · Science</span><h3>Project Title</h3></div>
+  </a>
+  <a class="tile" href="#" data-tags="eng">
+    <img src="images/projects/placeholder/drone.jpg" alt="">
+    <div class="cap"><span>Engineering</span><h3>Project Title</h3></div>
+  </a>
+  <a class="tile" href="#" data-tags="id">
+    <img src="images/projects/placeholder/binding.jpg" alt="">
+    <div class="cap"><span>Industrial Design</span><h3>Project Title</h3></div>
+  </a>
+  <a class="tile" href="#" data-tags="id">
+    <img src="images/projects/placeholder/hex.jpg" alt="">
+    <div class="cap"><span>Industrial Design</span><h3>Project Title</h3></div>
+  </a>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <span class="label">© <span id="y">2026</span> Marshall Graybill</span>
-    <span class="label"><a href="about.html#contact">Contact</a></span>
-  </div>
-</footer>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<footer class="site-footer">© <span id="y">2026</span> Marshall Graybill</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const btns = document.querySelectorAll('.filters button'), tiles = document.querySelectorAll('.tile');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.toggle('on', x === b));
+    tiles.forEach(t => t.classList.toggle('hide', b.dataset.f !== 'all' && !t.dataset.tags.split(' ').includes(b.dataset.f)));
+  }));
+</script>
 </body>
 </html>
