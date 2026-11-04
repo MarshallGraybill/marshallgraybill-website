@@ -75,6 +75,16 @@ img { display: block; max-width: 100%; height: auto; }
 .features li { border-top: 1px solid #d9d5cc; padding: 14px 0 18px; font-size: 16px; }
 .features li span { display: block; font-size: 12px; letter-spacing: .18em; color: var(--dim); margin-bottom: 4px; }
 
+/* White panel behind renders with transparent backgrounds */
+.shots .white img { background: #fff; }
+
+/* Side-by-side row for images of very different proportions: set each figure's
+   --ar (width ÷ height) and the row sizes them so heights match without cropping. */
+.shots .row.fit { display: flex; gap: var(--gap); align-items: flex-start; }
+.shots .row.fit figure { flex: var(--ar) 1 0; display: block; min-width: 0; }
+.shots .row.fit img { height: auto; object-fit: initial; }
+@media (max-width: 760px) { .shots .row.fit { flex-direction: column; } }
+
 /* Logo used in place of a text title */
 .project-head .logo { margin: 0 auto; max-width: min(360px, 70vw); }
 .project-head .logo img { width: 100%; }
