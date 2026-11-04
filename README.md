@@ -22,3 +22,10 @@ Export images as JPG/WebP about 2000px wide so pages load quickly.
 - **Netlify** or **Cloudflare Pages**: connect the repo, leave the build command empty, and set the publish directory to `/`.
 
 All three support a custom domain. Point `marshallgraybill.com`'s DNS at the host before you cancel Adobe.
+
+## Contact form
+`contact.html` sends messages through [Web3Forms](https://web3forms.com), so your email address never appears in the site's code.
+1. Go to web3forms.com and enter the inbox that should receive messages (graybillmarshall@gmail.com).
+2. Copy the access key they email you.
+3. In `contact.html`, replace `YOUR_WEB3FORMS_ACCESS_KEY` with that key.
+The access key is safe to publish: it can only send messages to your inbox, and it doesn't reveal the address.

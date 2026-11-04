@@ -179,3 +179,35 @@ img { display: block; max-width: 100%; height: auto; }
 .cv-list .meta { display: block; margin-top: 4px; font-size: 15px; color: var(--dim); }
 .cv-list a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; overflow-wrap: anywhere; }
 @media (max-width: 760px) { .cv-section { grid-template-columns: 1fr; } }
+
+/* ---------- Publications page ---------- */
+.pub-list { margin: 0; padding: 0; list-style: none; }
+.pub { display: grid; grid-template-columns: 72px 1fr; gap: 6px 24px; padding: 22px 0; border-top: 1px solid var(--rule); }
+.pub:first-child { border-top: 0; padding-top: 4px; }
+.pub .year { font-size: 15px; letter-spacing: .12em; color: var(--dim); padding-top: 3px; }
+.pub h3 { margin: 0; font-size: 20px; font-weight: 400; line-height: 1.4; }
+.pub .authors { margin: 6px 0 0; font-size: 16px; }
+.pub .venue { margin: 4px 0 0; font-size: 15px; color: var(--dim); line-height: 1.6; }
+.pub .links { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 10px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+.pub .links a { color: var(--dim); border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+.pub .links a:hover { color: var(--ink); border-color: var(--ink); }
+.tag { display: inline-block; margin-left: 8px; padding: 2px 8px; border: 1px solid var(--rule); border-radius: 999px;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); vertical-align: 3px; }
+@media (max-width: 760px) { .pub { grid-template-columns: 1fr; } }
+
+/* ---------- Contact page ---------- */
+.contact { max-width: 640px; margin: 0 auto; }
+.field { margin-bottom: 22px; }
+.field label { display: block; margin-bottom: 8px; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.field input, .field textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--rule); border-radius: var(--radius);
+  background: #fff; color: var(--ink); font: 300 17px/1.5 "Jost", "Futura", sans-serif; }
+.field textarea { min-height: 180px; resize: vertical; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--ink); }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.send { display: inline-flex; align-items: center; gap: 10px; padding: 14px 30px; border: 1px solid var(--ink); border-radius: 999px;
+  background: var(--ink); color: var(--bg); font: 400 14px "Jost", sans-serif; letter-spacing: .18em; text-transform: uppercase; cursor: pointer; }
+.send:hover { background: transparent; color: var(--ink); }
+.send:disabled { opacity: .5; cursor: wait; }
+.form-status { margin-top: 18px; min-height: 1.6em; }
+.form-status.ok { color: #2f6b3a; }
+.form-status.err { color: #a3322a; }
