@@ -7,7 +7,6 @@ index.html                 Work: project grid with sorting tabs
 projects/canyon-house.html Project page (copy it for each new project)
 images/projects/<name>/    Images for each project (cover.jpg is the 16:9 grid tile)
 css/style.css              All styling (colours, corner radius etc. at the top)
-mockups/                   Layout concepts explored before choosing the off-white gallery
 ```
 
 ## Adding a project
@@ -29,3 +28,6 @@ All three support a custom domain. Point `marshallgraybill.com`'s DNS at the hos
 2. Copy the access key they email you.
 3. In `contact.html`, replace `YOUR_WEB3FORMS_ACCESS_KEY` with that key.
 The access key is safe to publish: it can only send messages to your inbox, and it doesn't reveal the address.
+
+## Design archive
+Layout mockups, icon options, and page screenshots live on the `design-archive` branch so they aren't published with the site.
