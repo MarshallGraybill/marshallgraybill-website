@@ -66,6 +66,15 @@ img { display: block; max-width: 100%; height: auto; }
 .shots .row img { height: 100%; object-fit: cover; }
 .shots figcaption { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin-top: 10px; }
 
+/* Sub-sections within a project (e.g. two design concepts) */
+.part { max-width: 1600px; margin: 72px auto 0; }
+.part-head { display: flex; align-items: baseline; gap: 16px; border-top: 1px solid #d9d5cc; padding-top: 18px; margin-bottom: 24px; }
+.part-head .num { font-size: 14px; letter-spacing: .14em; color: var(--dim); }
+.part-head h2 { margin: 0; font-size: clamp(20px, 2vw, 26px); font-weight: 400; letter-spacing: .06em; text-transform: uppercase; }
+.features { max-width: 1100px; margin: 0 auto; display: grid; gap: 0 40px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); padding: 0; list-style: none; }
+.features li { border-top: 1px solid #d9d5cc; padding: 14px 0 18px; font-size: 16px; }
+.features li span { display: block; font-size: 12px; letter-spacing: .18em; color: var(--dim); margin-bottom: 4px; }
+
 .pager { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; max-width: 1600px; margin: 64px auto 0;
   padding-top: 24px; border-top: 1px solid #d9d5cc; font-size: 17px; letter-spacing: .06em; text-transform: uppercase; }
 .pager a { color: var(--dim); }
