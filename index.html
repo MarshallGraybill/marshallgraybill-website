@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marshall Graybill</title>
+  <meta name="description" content="Marshall Graybill: industrial designer, engineer, and scientist.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <strong>Marshall Graybill</strong>
+      <span>Design · Engineering · Science</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Work</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <p class="label">Portfolio</p>
+    <!-- TODO: replace with your own one-line statement -->
+    <h1>Designing physical products from first principles.</h1>
+    <p>Industrial designer, engineer, and PhD researcher. My work moves from user research and form development through mechanical engineering and scientific testing.</p>
+    <ul class="disciplines">
+      <li>Industrial Design</li>
+      <li>Engineering</li>
+      <li>Science</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="work-h">
+    <div class="section-head">
+      <h2 id="work-h">Selected Work</h2>
+      <span class="label">Index</span>
+    </div>
+
+    <!--
+      PROJECT GRID
+      Copy one <a class="card"> block per project.
+      - href: the project's page in /projects/
+      - img:  a 4:3 cover image in /images/projects/
+    -->
+    <div class="grid">
+      <a class="card" href="projects/project-one.html">
+        <div class="thumb"><div class="ph">Cover image</div></div>
+        <div class="meta"><span class="label">01 — Industrial Design</span><span class="label">2025</span></div>
+        <h3>Project One</h3>
+      </a>
+      <a class="card" href="projects/project-one.html">
+        <div class="thumb"><div class="ph">Cover image</div></div>
+        <div class="meta"><span class="label">02 — Engineering</span><span class="label">2024</span></div>
+        <h3>Project Two</h3>
+      </a>
+      <a class="card" href="projects/project-one.html">
+        <div class="thumb"><div class="ph">Cover image</div></div>
+        <div class="meta"><span class="label">03 — Product</span><span class="label">2023</span></div>
+        <h3>Project Three</h3>
+      </a>
+      <a class="card" href="research.html">
+        <div class="thumb"><div class="ph">Research figure</div></div>
+        <div class="meta"><span class="label">04 — PhD Research</span><span class="label">Ongoing</span></div>
+        <h3>Doctoral Research</h3>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="label">© <span id="y">2026</span> Marshall Graybill</span>
+    <span class="label"><a href="about.html#contact">Contact</a></span>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
